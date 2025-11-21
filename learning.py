@@ -1,5 +1,8 @@
-for i in range(1, 10):
-    if i%2==0:
-        print("even")
-    else:
-        print("odd")
+def even_odd(start, end):
+    for i in range(start, end):
+        if i%2==0:
+            print("even")
+        else:
+            print("odd")
+
+even_odd(10, 20)
