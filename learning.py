@@ -1,3 +1,9 @@
+def outer(func):
+    def wrapper(*args, **kwargs):
+        func(*args, **kwargs)
+    return wrapper
+
+
 class Numbers:
 
     def even_odd(self, start, end):
@@ -19,3 +25,4 @@ class Numbers:
 num = Numbers()
 num.even_odd(10, 20)
 num.prime_numbers()
+
