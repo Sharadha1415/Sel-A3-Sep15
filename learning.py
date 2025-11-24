@@ -6,6 +6,10 @@ def outer(func):
 
 class Numbers:
 
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
     def even_odd(self, start, end):
         for i in range(start, end):
             if i%2==0:
@@ -22,7 +26,7 @@ class Numbers:
                 print(i)
 
 
-num = Numbers()
+num = Numbers(10, 20)
 num.even_odd(10, 20)
 num.prime_numbers()
 
