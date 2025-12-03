@@ -389,17 +389,82 @@ Eg5.    wap to print the price of MRF in https://in.tradingview.com/
 
 #####################################################################################
 
+from selenium import webdriver
 
+opts = webdriver.ChromeOptions()
+opts.add_experimental_option("detach", True)
 
+driver = webdriver.Chrome(opts)
 
+##-------------------------------------------------------------------------------------------
 
+'''
+Parent --> Child
+Locate_parent/child
+parent//child
 
+# '''
+#
+# driver.get('https://demowebshop.tricentis.com/')
+# time.sleep(2)
+# ele = driver.find_element('xpath', '//div[@class="block block-category-navigation"]//a[contains(text(), "Books")]')
+#
+# ## -------------------------------------------------------------------------------------------
+#
+# driver.get('https://www.amazon.in/')
+# driver.find_element('xpath', '//div[@class="nav-search-field "]/input')
 
+#####################################################################################
 
+'''
+child --> parent
+'''
 
+# driver.get('https://www.instagram.com/')
+# driver.find_element('xpath', '//input[@name="username"]/..')        ## go back to one parent(label)
+# driver.find_element('xpath', '//input[@name="username"]/../..')     ## go back to twice(parent of label)
 
+#
+# driver.get('https://www.instagram.com/')
+# driver.find_element('xpath', '//input[@name="username"]/parent::label')     ## takes to the immediate parent
 
+#####################################################################################
+'''
+siblings
+'''
 
+# driver.get('https://demowebshop.tricentis.com/register')
+# time.sleep(2)
+#
+# ## following sibling
+# driver.find_element('xpath', '//label[text()="Email:"]/following-sibling::input')
+#
+# ## preceding sibling
+# driver.find_element('xpath', '//input[@name="Email"]/preceding-sibling::label')
+
+#####################################################################################
+'''
+ancestors
+'''
+
+driver.get('https://demowebshop.tricentis.com/register')
+time.sleep(2)
+driver.find_element('xpath', '//input[@name="Email"]/ancestor::div')
+
+## If there are multiple occurances, we can index
+driver.find_element('xpath', '//input[@name="Email"]/ancestor::div[n]')
+
+#####################################################################################
+'''
+descendant
+'''
+
+# driver.get('https://demowebshop.tricentis.com/register')
+# time.sleep(2)
+#
+# driver.find_element('xpath', '//div[@class="page registration-page"]//input')
+#
+# driver.find_element('xpath', '//div[@class="page registration-page"]/descendant::input')
 
 
 

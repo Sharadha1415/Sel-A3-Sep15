@@ -36,7 +36,7 @@ print(driver.current_url)           ## Gives the url of the page
 print(driver.title)                 ## It will give the title of the page
 print(driver.name)                  ## It gives the names of the browser
 
-## Take screenshot of the application
+## Take screenshot of the page
 driver.save_screenshot('myntra_ss.png')
 
 #
