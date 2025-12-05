@@ -177,7 +177,8 @@ file upload pop-up
 #############################################################################################################
 
 # ## push notifications
-#
+
+## Handle push notifications in Chrome
 # from selenium import webdriver
 #
 # opts = webdriver.ChromeOptions()
@@ -189,23 +190,33 @@ file upload pop-up
 # driver.get('https://www.irctc.co.in/nget/train-search')
 #
 
-########################################################################
+##--------------------------------------------------------------
+## Handle push notifications in Firefox
 
 from selenium import webdriver
 
-opts = webdriver.ChromeOptions()
-opts.add_experimental_option("detach", True)
+opts = webdriver.FirefoxOptions()
+opts.set_preference("dom.webnotifications.enabled", False)
+opts.set_preference("dom.push.enabled", False)
+driver = webdriver.Firefox(opts)
 
-driver = webdriver.Chrome(opts)
-driver.implicitly_wait(10)
+########################################################################
 
-driver.get('https://blinkit.com/')
-time.sleep(2)
-
-driver.find_element('xpath', '//button[text()="Detect my location"]').click()
-time.sleep(1)
-
-driver.find_element('xpath', '//input[@name="select-locality"]').send_keys('Qspiders basavanagudi')
+# from selenium import webdriver
+#
+# opts = webdriver.ChromeOptions()
+# opts.add_experimental_option("detach", True)
+#
+# driver = webdriver.Chrome(opts)
+# driver.implicitly_wait(10)
+#
+# driver.get('https://blinkit.com/')
+# time.sleep(2)
+#
+# driver.find_element('xpath', '//button[text()="Detect my location"]').click()
+# time.sleep(1)
+#
+# driver.find_element('xpath', '//input[@name="select-locality"]').send_keys('Qspiders basavanagudi')
 
 
 
